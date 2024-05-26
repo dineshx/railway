@@ -1,0 +1,207 @@
+Sub ProcessExcelFile()
+    Dim filePath As String
+    Dim wb As Workbook
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+
+    ' Prompt user to select an Excel file
+    filePath = Application.GetOpenFilename("Excel Files (*.xls; *.xlsx), *.xls; *.xlsx")
+
+    If filePath <> "False" Then
+        ' Open the selected workbook
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+
+        ' --- Superone ---
+        ' Keep only specific values in columns A, G, and E
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value <> 122873 Or ws.Cells(i, "G").Value <> 3 Or ws.Cells(i, "E").Value <> 30027963 Then
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 35
+
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "superone_" & Format(Now, "mm.dd.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+
+        ' --- Supertwo ---
+        ' Similar steps as above for Supertwo (change values and delete columns)
+                ' Reopen the original file
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+        
+                ' Keep only specific values in columns A, G, and E (modify as needed)
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value <> 122873 Or ws.Cells(i, "G").Value <> 3 Or ws.Cells(i, "E").Value <> 30024155 Then
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 25
+
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "supertwo_" & Format(Now, "mm.dd.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+  
+    
+        ' ...
+
+        ' --- Superthree ---
+        ' Similar steps as above for Superthree (change values and delete columns)
+                        ' Reopen the original file
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+        
+                ' Keep only specific values in columns A, G, and E (modify as needed)
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value <> 122873 Or ws.Cells(i, "G").Value <> 3 Or ws.Cells(i, "E").Value <> 30133653 Then
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 25
+        
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "superthree_" & Format(Now, "mm.dd.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+        ' ...
+
+        ' --- Superfour ---
+        ' Reopen the original file
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+
+        ' Keep only specific values in column G based on values in column A (122816 or 122873)
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value = 122816 Then
+                ws.Cells(i, "G").Value = 189
+            ElseIf ws.Cells(i, "A").Value = 122873 Then
+                ws.Cells(i, "G").Value = 38
+            Else
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 25
+
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "superfour_" & Format(Now, "dd.mm.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+        
+        
+                ' --- Superfive ---
+        ' Reopen the original file
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+
+        ' Keep only specific values in column G based on values in column A (122816 or 122873)
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value = 122816 Then
+                ws.Cells(i, "G").Value = 187
+            ElseIf ws.Cells(i, "A").Value = 122873 Then
+                ws.Cells(i, "G").Value = 37
+            Else
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 25
+
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "superfive_" & Format(Now, "mm.dd.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+        
+                        ' --- Supersix ---
+        ' Reopen the original file
+        Set wb = Workbooks.Open(filePath)
+        Set ws = wb.ActiveSheet
+
+        ' Keep only specific values in column G based on values in column A (122816 or 122873)
+        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        For i = lastRow To 2 Step -1
+            If ws.Cells(i, "A").Value = 122816 Then
+                ws.Cells(i, "G").Value = 2
+            ElseIf ws.Cells(i, "A").Value = 122873 Then
+                ws.Cells(i, "G").Value = 33
+            Else
+                ws.Rows(i).Delete
+            End If
+        Next i
+
+        ' Delete unwanted columns
+        ws.Range("A:A,G:G,H:H,I:I,L:L,M:M,P:P,Q:Q,R:R,T:T,U:U,V:V,W:W,X:X,Y:Y,Z:Z").Delete
+
+        ' Adjust row height for all rows with data (except header row) to 20
+        ws.Rows("2:" & lastRow).RowHeight = 20
+
+        ' Set header row's height to 25
+        ws.Rows(1).RowHeight = 25
+
+        ' Autofit the entire sheet
+        ws.Cells.EntireRow.AutoFit
+
+        ' Save the modified file
+        wb.SaveAs "supersix_" & Format(Now, "mm.dd.yyyy") & ".xlsx"
+        wb.Close SaveChanges:=False
+        
+    End If
+End Sub
+
